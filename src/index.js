@@ -29,10 +29,11 @@ const defaultArgs = {
   name: "",
   class: "GraphQLObjectType",
   description: "description",
-  extends: () => ({})
+  extends: () => ({}),
+  exclude: ["__v"]
 }
 const createType = (_args) => {
-  const args = Object.assign({}, defaultArgs, _args);
+  const args = R.mergeDeepWithKey((k, l, r) => k == 'exclude' ? R.concat(l, r) : r, defaultArgs, _args);
   const resType = ({required = false}) => type => {
     if(required) {
       return { type: new GraphQLNonNull(type) }
@@ -71,7 +72,6 @@ const createType = (_args) => {
             schema,
             name: `${args.name}_${name}`,
             extends: () => ({}),
-            exclude: []
           }))));
         }
         return res(new GraphQLList(toType(`${args.name}_SUB_ARRAY_${name}`)(caster).type));
@@ -81,7 +81,6 @@ const createType = (_args) => {
           schema,
           name: `${args.name}_${name}`,
           extends: () => ({}),
-          exclude: []
         })))
         break;
     }
@@ -121,7 +120,10 @@ const createType = (_args) => {
     R.mergeAll,
   )
 
-  let fields = mapToType(args.schema);
+  let fields = R.pipe(
+    mapToType,
+    R.omit(args.exclude)
+  )(args.schema)
   return new CLS[args.class]({
     name: args.name,
     description: args.description,

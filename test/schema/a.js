@@ -29,5 +29,6 @@ export default Schema({
     }
   },
   EmbeddedB: b,
-  EmbeddedBArray: [b]
-});
+  EmbeddedBArray: [b],
+  __v: Number
+}, {timestamp: true});
