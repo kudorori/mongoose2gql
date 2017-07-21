@@ -15,6 +15,8 @@
 
 3. Array型態不單單只轉變成`[String]`
 
+4. 加入了GraphQLNonNull的支持
+
 
 
 
