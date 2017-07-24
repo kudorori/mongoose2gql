@@ -26,7 +26,7 @@
 
 # Method
 
-```
+```javascript
 /**
  * @params {string} name
  * @params {mongooseSchema} schema
