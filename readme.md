@@ -22,11 +22,20 @@
 
 # Install
 
-> TODO ， 看我什麼時候丟上npm
+> $ npm i -S mongoose2gql
 
 # Method
 
 ```
+/**
+ * @params {string} name
+ * @params {mongooseSchema} schema
+ * @params {string} class Enum["GraphQLObjectType", "GraphQLInputObjectType"]
+ * @params {string} description
+ * @params {function} extends
+ *         @return Object
+ * @return GraphQLType[class]
+ */
 createType({
   name,
   schema,
@@ -35,13 +44,6 @@ createType({
   extends
 })
 ```
-
-
-* name: String
-* schema: mongoose schema
-* class: ["GraphQLObjectType", "GraphQLInputObjectType"]
-* description: String
-* extends: fn => Object
 
 # Exmaple
 
