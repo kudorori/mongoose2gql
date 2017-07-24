@@ -67,7 +67,7 @@ export default createType({
 
 > 這個範例會等於
 
-```
+```javascript
 type AType {
   stringType: String
   numberType: Int
