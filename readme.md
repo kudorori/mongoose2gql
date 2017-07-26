@@ -104,7 +104,8 @@ export default createType({
     BType: {
       type: BType
     }
-  })
+  }),
+  exclude: ["_id"]
 })
 
 ```
@@ -115,13 +116,13 @@ export default createType({
 type AType {
   stringType: String
   numberType: Int
+  floatType: Float
   dateType: String
   requiredType: String!
   arrayTypeString: [String]
   arrayTypeNumber: [Int]
   EmbeddedB: AType_EmbeddedB
   EmbeddedBArray: [AType_EmbeddedBArray]
-  _id: String
   tree: AType_tree
   BType: BType
 }
