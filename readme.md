@@ -63,7 +63,7 @@ export default Schema({
   numberType: Number,
   floatType: {
     type: Number,
-    graphql: GraphQLFloat   #強制使用這個型別
+    graphql: GraphQLFloat   //強制使用這個型別
   },
   dateType: Date,
   requiredType: {
