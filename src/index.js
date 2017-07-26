@@ -19,11 +19,6 @@ const CLS = {
   GraphQLInputObjectType
 }
 
-const createArrayType = () => {
-
-}
-
-
 
 const defaultArgs = {
   name: "",
@@ -44,6 +39,9 @@ const createType = (_args) => {
   const toType = name => ({enumValues, instance, options, caster, schema}) => {
 
     const res = resType(options);
+    if(options.graphql != undefined){
+      return res(options.graphql);
+    }
     switch(instance){
       case "String":
         return res(GraphQLString);
