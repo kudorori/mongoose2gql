@@ -16,7 +16,8 @@ import {
 
 const CLS = {
   GraphQLObjectType,
-  GraphQLInputObjectType
+  GraphQLInputObjectType,
+  GraphQLInterfaceType
 }
 
 
@@ -125,7 +126,7 @@ const createType = (_args) => {
   return new CLS[args.class]({
     name: args.name,
     description: args.description,
-    fields: () => Object.assign({}, fields, args.extends())
+    fields: () => Object.assign({}, fields, args.extends()),
   });
 
 }

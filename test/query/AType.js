@@ -4,14 +4,19 @@
 import createType from "../../src";
 import schema from "../schema/a";
 import BType from "./BType";
+import {
+  GraphQLObjectType
+} from "graphql"
 
-export default createType({
+const impl = createType({
   name: "AType",
   schema,
-  extends: () => ({
-    BType: {
-      type: BType
-    }
-  }),
-  exclude: ["_id"]
+  exclude: ["_id"],
+  class: "GraphQLInterfaceType"
+})
+
+export default new GraphQLObjectType({
+  name: "asdasdasd",
+  interfaces: impl,
+
 })

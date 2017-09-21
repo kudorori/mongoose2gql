@@ -15,7 +15,7 @@
     "mongoose",
     "graphql"
   ],
-  "author": "",
+  "author": "Ming Feng, Su",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kudorori/mongoose2gql/issues"

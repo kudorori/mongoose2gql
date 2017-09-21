@@ -15,7 +15,8 @@ const BType = createType({
     BType: {
       type: BType
     }
-  })
+  }),
+  class: "GraphQLObjectType"
 })
 
 export default BType
