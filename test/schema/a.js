@@ -10,32 +10,42 @@ import b from "./b";
 
 let Schema = mongoose.Schema;
 export default Schema({
-  stringType: String,
+  stringType: {
+    type: String,
+    required: true
+  },
   numberType: Number,
-  floatType: {
-    type: Number,
-    graphql: GraphQLFloat
+  subDocument: {
+    type: b,
+    required: true
   },
-  dateType: Date,
-  requiredType: {
-    required: true,
-    type: String
-  },
-  arrayTypeString: [String],
-  arrayTypeNumber: [Number],
-  tree: {
+  embed: {
     title: String,
-    tree: {
-      title: String,
-      titleArray: [String],
-      titleObject: {
-        subTitle: String,
-        subsubTitle: String,
-        createAt: Date
-      }
-    }
+    int: Number
   },
-  EmbeddedB: b,
-  EmbeddedBArray: [b],
-  __v: Number
+  array: [{
+    type: String,
+    required: true
+  }],
+  subArrDoc: [{
+    title: {
+      type: String,
+      required: true
+    },
+    content: String
+  }]
 }, {timestamp: true});
+
+
+/**
+ * type b {
+ *  title: String
+ * }
+ *
+ * type * {
+ *  stringType: String!,
+ *  numberType: Int,
+ *  subDocument: b,
+ *  array: [String!]
+ * }
+ */

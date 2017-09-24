@@ -1,24 +1,31 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import query from "../query";
-import mutation from "../mutation";
+import types from "../types";
+import models from "./models";
+import { makeExecutableSchema } from 'graphql-tools';
 import {
   GraphQLSchema,
   GraphQLObjectType
 } from "graphql"
 const PORT = 3000;
 
-const schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: "rootQuery",
-    fields: query
-  }),
-  mutation: new GraphQLObjectType({
-    name: "rootMutation",
-    fields: mutation
-  })
-})
+const typeDefs =  `
+  ${types}
+  type Query {
+    aList: [a],
+    bList: [b]
+  }
+`
+
+const resolvers = {
+  Query: {}
+}
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
 
 
 
