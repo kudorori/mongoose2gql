@@ -23,7 +23,7 @@ const bType = createType({
 
 const type1 = `
   type Query {
-    b123: String
+    me: Me
   }
   type Me {
     me1: String
@@ -32,7 +32,7 @@ const type1 = `
 
 const type2 = `
   type Query{
-    b222: String
+    me: Me
   }
   type Me {
     me2: String

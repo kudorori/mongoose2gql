@@ -9,20 +9,24 @@ export default (types) => {
   let result = {};
   types.forEach((item, idx) => {
     const ast = parse(item);
-    console.log(ast);
     ast.definitions.forEach((definition) => {
       const definitionName = getTypeName(definition);
       if(result[definitionName] == undefined) {
         result[definitionName] = definition;
       } else {
         result[definitionName] = R.evolve({
-          fields: R.concat(R.__, definition.fields)
+          fields: R.pipe(
+            R.concat(R.__, definition.fields),
+          ),
         }, result[definitionName])
       }
     })
   })
 
   return R.pipe(
+    R.map(R.evolve({
+      fields: R.uniqBy(R.path(["name", "value"]))
+    })),
     R.toPairs,
     R.map(R.prop(1)),
     R.objOf("definitions"),
