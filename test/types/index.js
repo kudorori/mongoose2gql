@@ -1,6 +1,6 @@
 import a from "../schema/a";
 import b from "../schema/b";
-import createType from "../../src";
+import createType, { mergeType } from "../../src";
 
 const aType = createType({
   schema: a,
@@ -20,11 +20,25 @@ const bType = createType({
   name: 'b'
 });
 
-const str = `
-  ${aType}
-  ${bType}
+
+const type1 = `
+  type Query {
+    b123: String
+  }
+  type Me {
+    me1: String
+  }
 `
 
-// console.log(str)
+const type2 = `
+  type Query{
+    b222: String
+  }
+  type Me {
+    me2: String
+  }
+`
 
-export default str;
+const schema = mergeType([type1, type2]);
+console.log(schema);
+export default schema;

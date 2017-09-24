@@ -6,9 +6,11 @@ import toTypeString from "./toTypeString";
 import mergeExtend from "./mergeExtend";
 import mergeIgnore from "./mergeIgnore";
 
+import mergeType from "./mergeType";
 
-
-
+export {
+  mergeType
+};
 
 
 //result [type, ... , type]
