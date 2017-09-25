@@ -6,7 +6,6 @@ const firstUpper = R.pipe(
 )
 
 const array2Type = (result, name, key) => R.pipe(
-  R.tap(console.log),
   R.head,
   R.cond([
     [ R.is(Array), item => `${array2Type(name, key)(item).name}` ],

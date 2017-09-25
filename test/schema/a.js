@@ -10,8 +10,11 @@ import b from "./b";
 
 let Schema = mongoose.Schema;
 export default new Schema({
-  test: [[String]],
-  aaa: [{a: String, b:String}]
+  test: [String],
+  numbers: {
+    type: [Number],
+    default: [0,0,0]
+  }
 }, {
   timestamps: true
 });

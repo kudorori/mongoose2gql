@@ -35,6 +35,7 @@ const resultType = type => R.ifElse(
 )
 
 const arrayToType = R.pipe(
+  R.when(R.has("type"), R.prop("type")),
   R.head,
   R.cond([
     [R.has("type"), item => [Field2Type(item)]],
