@@ -20,6 +20,8 @@ const bType = createType({
   name: 'b'
 });
 
+console.log(aType);
+
 
 const type1 = `
   type Query {

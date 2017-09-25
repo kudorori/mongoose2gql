@@ -10,38 +10,8 @@ import b from "./b";
 
 let Schema = mongoose.Schema;
 export default new Schema({
-  username: String,
-  password: String,
-  image: String,
-  name: String,
-  // sex: {
-  //   type: String,
-  //   default: "M",
-  //   enum: [
-  //     "M",
-  //     "F"
-  //   ]
-  // },
-  email: {
-    type: String
-  },
-  phone: {
-    type: String
-  },
-  birthDay: Date,
-  description: {
-    type: String,
-    default: "大家好！請多多指教！"
-  },
-  city: String,
-  area: String,
-  address: String,
-  role: {
-    type: String,
-    default: "GENRAL",
-    ref: "user/role"
-  },
-  badge: [String]
+  test: [[String]],
+  aaa: [{a: String, b:String}]
 }, {
   timestamps: true
 });
