@@ -9,32 +9,42 @@ import {
 import b from "./b";
 
 let Schema = mongoose.Schema;
-export default Schema({
-  stringType: {
+export default new Schema({
+  username: String,
+  password: String,
+  image: String,
+  name: String,
+  // sex: {
+  //   type: String,
+  //   default: "M",
+  //   enum: [
+  //     "M",
+  //     "F"
+  //   ]
+  // },
+  email: {
+    type: String
+  },
+  phone: {
+    type: String
+  },
+  birthDay: Date,
+  description: {
     type: String,
-    required: true
+    default: "大家好！請多多指教！"
   },
-  numberType: Number,
-  subDocument: {
-    type: b,
-    required: true
-  },
-  embed: {
-    title: String,
-    int: Number
-  },
-  array: [{
+  city: String,
+  area: String,
+  address: String,
+  role: {
     type: String,
-    required: true
-  }],
-  subArrDoc: [{
-    title: {
-      type: String,
-      required: true
-    },
-    content: String
-  }]
-}, {timestamps: true});
+    default: "GENRAL",
+    ref: "user/role"
+  },
+  badge: [String]
+}, {
+  timestamps: true
+});
 
 
 /**

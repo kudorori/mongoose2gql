@@ -38,6 +38,7 @@ const arrayToType = R.pipe(
   R.head,
   R.cond([
     [R.has("type"), item => [Field2Type(item)]],
+    [item => typeof(item) == "function", item => [Field2Type(item)]],
     [R.is(Object), item => [mapType(item)]],
   ]),
 )
