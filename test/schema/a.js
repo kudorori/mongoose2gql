@@ -34,7 +34,7 @@ export default Schema({
     },
     content: String
   }]
-}, {timestamp: true});
+}, {timestamps: true});
 
 
 /**

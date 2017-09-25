@@ -12,6 +12,7 @@ export {
   mergeType
 };
 
+const log = R.tap(console.log);
 
 //result [type, ... , type]
 const createType = (_args) => {
@@ -22,6 +23,7 @@ const createType = (_args) => {
     ignore = () => ({}),
     extend = () => ({})
   } = _args;
+
   return R.pipe(
     tree2Type,
     toTypes(name, description),

@@ -46,6 +46,7 @@ const Field2Type = R.cond([
   [isInstance(String), resultType("String")],
   [isInstance(Number), resultType("Float")],
   [isInstance(Schema.ObjectId), resultType("String")],
+  [isInstance(Date), resultType("String")],
   [isInstance(Array), arrayToType],
   [isInstance(Object), item => mapType(item)],
   [R.T, R.empty]
