@@ -8,7 +8,7 @@ export default ignoreObjs => R.map(R.when(
     return {
       ...props,
       name,
-      properties: R.omit(extendObjs[name], properties)
+      properties: R.omit(ignoreObjs[name], properties)
     }
   }
 ))

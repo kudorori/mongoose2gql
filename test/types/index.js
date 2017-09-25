@@ -5,14 +5,12 @@ import createType, { mergeType } from "../../src";
 const aType = createType({
   schema: a,
   name: "a",
-  description: "123123",
+  // description: "123123",
   ignore: () => ({
 
   }),
   extend: () => ({
-    a: {
-      bbb: "b"
-    }
+
   })
 });
 const bType = createType({
@@ -20,10 +18,10 @@ const bType = createType({
   name: 'b'
 });
 
-console.log(aType);
-
 
 const type1 = `
+  
+  # Description
   type Query {
     me: Me
   }
@@ -42,5 +40,5 @@ const type2 = `
 `
 
 const schema = mergeType([type1, type2]);
-console.log(schema);
+// console.log(schema);
 export default schema;

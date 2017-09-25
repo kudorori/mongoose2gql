@@ -1,4 +1,4 @@
-import { parse, print } from "graphql";
+import { parse, print, Source, printSource } from "graphql";
 import R from "ramda";
 
 const log = R.tap(console.log);

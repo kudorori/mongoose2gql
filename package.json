@@ -21,9 +21,6 @@
     "url": "https://github.com/kudorori/mongoose2gql/issues"
   },
   "homepage": "https://github.com/kudorori/mongoose2gql#readme",
-  "peerDependencies": {
-    "graphql": ">=0.7.1"
-  },
   "devDependencies": {
     "apollo-server-express": "^1.0.2",
     "babel-cli": "^6.14.0",
@@ -35,12 +32,12 @@
     "babel-preset-stage-1": "^6.13.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "graphql": "^0.10.5",
     "install": "^0.10.1",
     "mongoose": "^4.11.3",
     "npm": "^5.4.2"
   },
   "dependencies": {
+    "graphql": "^0.10.5",
     "graphql-tools": "^1.2.3",
     "merge-graphql-schemas": "^1.1.4",
     "ramda": "^0.24.1"
