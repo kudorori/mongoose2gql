@@ -6,11 +6,6 @@ import toTypeString from "./toTypeString";
 import mergeExtend from "./mergeExtend";
 import mergeIgnore from "./mergeIgnore";
 
-import mergeType from "./mergeType";
-
-export {
-  mergeType
-};
 
 const log = R.tap(console.log);
 
@@ -26,13 +21,10 @@ const createType = (_args) => {
 
   return R.pipe(
     tree2Type,
-    log,
     toTypes(name, description),
-    log,
     mergeIgnore(ignore()),
     mergeExtend(extend()),
     toTypeString,
-    log,
   )(schema.tree)
 }
 

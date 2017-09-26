@@ -18,27 +18,10 @@ const bType = createType({
   name: 'b'
 });
 
-
-const type1 = `
-  
-  # Description
+export default /* GraphQL */`
+  ${aType}
+  ${bType}
   type Query {
-    me: Me
+    default: String
   }
-  type Me {
-    me1: String
-  }
-`
-
-const type2 = `
-  type Query{
-    me: Me
-  }
-  type Me {
-    me2: String
-  }
-`
-
-const schema = mergeType([type1, type2]);
-// console.log(schema);
-export default schema;
+`;
