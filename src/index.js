@@ -26,10 +26,13 @@ const createType = (_args) => {
 
   return R.pipe(
     tree2Type,
+    log,
     toTypes(name, description),
+    log,
     mergeIgnore(ignore()),
     mergeExtend(extend()),
     toTypeString,
+    log,
   )(schema.tree)
 }
 

@@ -10,11 +10,37 @@ import b from "./b";
 
 let Schema = mongoose.Schema;
 export default new Schema({
-  test: [String],
-  numbers: {
-    type: [Number],
-    default: [0,0,0]
-  }
+  parent: {
+    type: Schema.ObjectId,
+    ref: "cms/page"
+  },
+  header: {
+    type: Schema.ObjectId,
+    ref: "cms/header"
+  },
+  icon: String,
+  class: String,
+  title: String,
+  open: String,
+  subTitle: String,
+  content: String,
+  redirect: {
+    pathname: String,
+    query: [[String]]
+  },
+  alias: String,
+  group: String,
+  display: {
+    type: Boolean,
+    default: true
+  },
+  plugins: [{
+    kind: String,
+    item: {
+      type: Schema.ObjectId,
+      refPath: "plugins.kind"
+    }
+  }]
 }, {
   timestamps: true
 });

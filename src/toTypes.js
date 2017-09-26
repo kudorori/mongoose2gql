@@ -33,7 +33,6 @@ const toTypes = (name, desc = "") => obj => {
     R.mapObjIndexed((item, key) => R.cond([
       [R.is(Array), item => {
         const objects = array2Type(result, name, key)(item);
-        result = R.concat(result, objects.result);
         return objects.name;
       }],
       [R.is(Object), item => {
