@@ -32,7 +32,8 @@ const toTypes = (name, desc = "") => obj => {
   const o = R.pipe(
     R.mapObjIndexed((item, key) => R.cond([
       [R.is(Array), item => {
-        const objects = array2Type(result, name, key)(item);
+        const objects = array2Type([], name, key)(item);
+        result = R.concat(result, objects.result);
         return objects.name;
       }],
       [R.is(Object), item => {
